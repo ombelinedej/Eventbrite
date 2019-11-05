@@ -41,6 +41,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+
+
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -49,6 +51,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
+gem 'letter_opener', '~> 1.4', '>= 1.4.1'
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
@@ -62,3 +66,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker', '~> 2.7'
 gem 'table_print', '~> 1.5', '>= 1.5.6'
+gem 'dotenv-rails' 
+gem 'devise', '~> 4.2'

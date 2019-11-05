@@ -17,7 +17,7 @@ puts "Users created"
 
 #____________________FAKE EVENT CREATION_________________________
 10.times do
-    Event.create(start_date:Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short), title:Faker::Lorem.words(number: 4), description:Faker::Lorem.words(number: 21), price:Faker::Number.within(range: 1..1000), location:Faker::Address.street_name)
+    Event.create(start_date:Faker::Time.between(from: DateTime.now - 1, to: DateTime.now, format: :short), title:Faker::Lorem.words(number: 4), description:Faker::Lorem.words(number: 21), price:Faker::Number.within(range: 1..1000), location:Faker::Address.street_name, duration:Faker::Lorem.words(number: 3))
 end
 
 puts "Events created"
