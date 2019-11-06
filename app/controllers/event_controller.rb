@@ -18,11 +18,11 @@ class EventController < ApplicationController
                       duration: params["event_duration"],
                       price: params["event_price"],
                       location: params["event_location"],
-                      user_id: current_user.id)
+                      user_id: current_user.id),
     
 
   end
-end
+
 
 
 
