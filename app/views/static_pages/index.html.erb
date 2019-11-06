@@ -2,14 +2,14 @@
 <div class="jumbotron jumbotron-fluid bg-dark">
   
   <div class="jumbotron-background">
-    <img src="https://zupimages.net/up/19/45/f03a.jpg" class="blur ">
+    <img src="https://zupimages.net/up/19/45/f03a.jpg" class="blur " height="420" width="1420">
   </div>
 
   <div class="container text-white">
 
 <br>
 </div>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Sign in </a>
+
 
   </div>
   <!-- /.container -->
@@ -24,34 +24,90 @@ For IE support of object-fit add this to your document
 -->
 
 
+<center>
 
 <ul>
   <% if user_signed_in? %>
-    <li>
+    <div>
+     <a class="btn btn-primary btn-lg"
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    </li>
+  >
+    </div>
 
-    <li>
+    <div>
       Voici ton email : <%= current_user.email %>
-    </li>
+    </div>
 
-    <li>
+    <div>
+    	    	 <a class="btn btn-primary btn-lg"
+
       <%= link_to "Secret page", static_pages_secret_path %>
-    </li>
+      >
+    </div>
 
-    <li>
+    <div>
+    	    	 <a class="btn btn-primary btn-lg"
+
       <%= link_to "Edit email / password", edit_user_registration_path %>
-    </li>
+      >
+    </div>
 
   <% else %>
-    <li>    
-      <%= link_to "Sign in", new_user_session_path %>
-    </li>
+    <div>    
+    	     <a class="btn btn-danger btn-lg"
 
-    <li>
+      <%= link_to "Sign in", new_user_session_path %>
+      
+
+    </div>
+<br>
+    <div>
+
+    	 <a class="btn btn-dark btn-lg"
       <%= link_to "Sign up", new_user_registration_path %>
-    </li>
+      
+    </div>
+   </br>
 
   <% end %>
 </ul>
+</center>
+
+
+<!--- INDEX OF EVENT FUELED WITH FAKER ---> 
+<center>
+
+   <div class="container">
+    <div class="row">
+    <%Event.all.each do |event|%>
+    <div class="card-deck col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    <div class="card">
+
+   <div class="card-header"> </div>
+    <div class="card-header"> <%=event.title%> </div>
+
+    <div class="card-body align-center">
+    <blockquote class="blockquote mb-0">
+    <p > Location: <%=event.location%></p>
+        <p> Date : <%=event.start_date%></p>
+
+    </blockquote>
+    </div>
+    <footer class="blockquote-footer">
+    <div class="row justify-content-between align-self-center mx-3">
+    	            	    <p><%=event.duration%></p>
+
+    </a>
+    </div>
+    </footer>
+    </div> 
+    </div>
+    <%end%>
+    </div>
+  </div>
+
+</center>
+​</body>
+
+
 

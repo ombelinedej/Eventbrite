@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>Nouveau event</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
+  </head>
+  <body>
+
+  <h1>Nouveau évènement</h1>
+
+  <% if @event %>
+  <% if @event.errors.any? %>
+  <p>Nous n'avons pas réussi à créer l'évènement pour la (ou les) raison(s) suivante(s) :</p>
+  <ul>
+    <% @event.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+  <%end%>
+
+	<form action= <%= event_index_path %> method="POST" id="new_event">
+    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+    Titre : <input class="form-control" type="text" name="event_title"><br />
+    
+    Date : <small>format JJ/MM/AAAA HH:MM</small><br />
+    <input class="form-control" type="text" name="event_start_date"><br />
+    Durée : <input class="form-control" type="text" name="event_duration"><br />
+    Prix : <input class="form-control" type="text" name="event_price"><br />
+    Description : <input class="form-control" type="text" name="event_description"><br />
+    Lieu : <input class="form-control" type="text" name="event_location"><br />
+      <input type="submit" value="Envoyer">
+    </form>
+    
+
+    </body>
+    </html>
