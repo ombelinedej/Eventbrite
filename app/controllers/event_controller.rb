@@ -2,6 +2,7 @@ class EventController < ApplicationController
   before_action :authenticate_user, only: [:create]
 
   def index
+    @events = Event.all
   end
 
   def new
