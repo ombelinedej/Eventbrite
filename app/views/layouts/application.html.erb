@@ -10,40 +10,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
         <!----BOOSTRAP NAVBAR ------->
-        
+
+
+
+
+
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-<a href="#"><img src="https://zupimages.net/up/19/45/86km.jpg" height="72" width="72" /></a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<%= link_to "Eventbrite", root_path, class: "navbar-brand js-scroll-trigger" %> 
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <a class="nav-link"><%= link_to "See all events", event_index_path, class: "navbar-brand js-scroll-trigger" %> 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-
-    </a> 
-        <a class="nav-link"><%= link_to "Eventbrite", root_path, class: "navbar-brand js-scroll-trigger" %> 
-
-
-
-
+        </div>
       </li>
-      <li class="nav-item">
-
-                <a class="nav-link"><%= link_to "Creat an event", new_event_path, class: "navbar-brand js-scroll-trigger" %> 
-
-
-                  <!--------------- DROPDOWN------->
-
-                  <a class="nav-link"><%= link_to "Sign in", new_user_registration_path, class: "navbar-brand js-scroll-trigger" %> 
-
-                    <a class="nav-link"><%= link_to "Sign out", new_user_session_path, class: "navbar-brand js-scroll-trigger" %> 
-
-
-
-
-
-
+    </ul>
+  </div>
 </nav>
+
+
+
+
+
 
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

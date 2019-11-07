@@ -1,0 +1,42 @@
+  
+<% content_for :title, @event.title %>
+
+<div class="card text-center">
+  <div class="card-header">
+  <% if current_user != nil %>
+    <% if current_user.id == @event.admin_id%>
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <a class="btn btn-info" href="<%= edit_event_path(@event.id) %>">Modifier</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-light" href="<%= event_path %>" data-confirm="Êtes-vous sûr ?" data-method="DELETE">Supprimer</a>
+        </li>
+      </ul>
+      <%end%>
+    <%end%>
+  </div>
+  <div class="card-body">
+    <h2 class="card-title"><strong><%= @event.title %></h2>
+    <h4 class="card-title"><strong><%= @event.start_date.strftime("%d-%m-%Y %H:%M") %></h4>
+
+    <h6> Description : </h6>
+    <div class="card shadow rounded col-4 offset-4 mb-3 p-3">
+      <h6 class="card-text"><%= @event.description %></h6>
+    </div>
+    <h6 class="card-text">Prix : <%= @event.price %> € | <%= @event.attendances.count %> participants </h6>
+    <h6 class="card-text">Situé à <%= @event.location %></h6>
+  </div>
+
+  <p>
+    <% if current_user != nil %>
+      <% if @attendance != nil %>
+        <%= link_to 'Je ne participe plus', @attendance, method: :delete, :class => 'btn btn-sm btn-outline-dark ml-1' %>
+      <% else %>
+      <% end %>
+    <% else %>
+    <% end %>
+  </p>
+
+</div>
+<br>

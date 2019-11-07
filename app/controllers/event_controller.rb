@@ -1,32 +1,59 @@
 class EventController < ApplicationController
-  before_action :authenticate_user, only: [:create]
+  before_action :authenticate_user!, only: [:new, :edit, :destroy]
+  before_action :set_event, only: [:show, :edit, :destroy]
 
   def index
     @events = Event.all
   end
 
+  def show
+  end
+  
   def new
+    @event = Event.new
   end
 
-  def show 
+  def edit
+  end
+
+  def update
+    @event = set_event
+    if @event.update(event_params)
+      redirect_to @event, notice: 'Event was successfully updated.'
+    else
+      render :edit
+    end
   end
 
   def create
-
-    @event = Event.new(title: params["event_title"],
-                      description: params["event_description"],
-                      start_date: params["event_start_date"],
-                      duration: params["event_duration"],
-                      price: params["event_price"],
-                      location: params["event_location"],
-                      user_id: current_user.id),
-    
-
+    @event = Event.new(event_params)
+    puts '*' * 30
+    puts event_params
+    puts '*' * 30
+    if @event.save
+      flash[:success] = 'Event successfully created'
+      redirect_to events_path
+    else
+      flash.now[:danger] = 'Something went wrong, please check your input'
+      render new_event_path
+    end
   end
 
 
-
-
+  def destroy
+    @event.destroy
+      redirect_to events_url, notice: 'Event was successfully destroyed.'
   end
+
+  private
+
+  def set_event
+    @event = Event.find(params[:id])
+  end
+
+  def event_params
+    params.require(:event).permit(:start_date, :duration, :title, :description, :price, :location, :administrator_id)
+  end
+
 
 end

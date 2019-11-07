@@ -1,36 +1,14 @@
-<html>
-  <head>
-    <title>Nouveau event</title>
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Staatliches&display=swap" rel="stylesheet">  <!-- polices -->
-  </head>
-  <body>
+<% content_for :title, "New event" %>
 
-  <h1>Nouveau évènement</h1>
+<div class="card text-center">
 
-  <% if @event %>
-  <% if @event.errors.any? %>
-  <p>Nous n'avons pas réussi à créer l'évènement pour la (ou les) raison(s) suivante(s) :</p>
-  <ul>
-    <% @event.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
-  <%end%>
+  <div class="card-header">
+    <h2>Creat an event  :</h2>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title"> Please fill the form below</strong></h4>
 
-	<form action= <%= event_index_path %> method="POST" id="new_event">
-    <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
-    Titre : <input class="form-control" type="text" name="event_title"><br />
-    
-    Date : <small>format JJ/MM/AAAA HH:MM</small><br />
-    <input class="form-control" type="text" name="event_start_date"><br />
-    Durée : <input class="form-control" type="text" name="event_duration"><br />
-    Prix : <input class="form-control" type="text" name="event_price"><br />
-    Description : <input class="form-control" type="text" name="event_description"><br />
-    Lieu : <input class="form-control" type="text" name="event_location"><br />
-      <input type="submit" value="Envoyer">
-    </form>
-    
+    <%= render 'forms' %>
+  </div>
 
-    </body>
-    </html>
+</div><br><br>

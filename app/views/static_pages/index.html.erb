@@ -2,7 +2,7 @@
 <div class="jumbotron jumbotron-fluid bg-dark">
   
   <div class="jumbotron-background">
-    <img src="https://zupimages.net/up/19/45/f03a.jpg" class="blur " height="420" width="1420">
+    <img src="https://zupimages.net/up/19/45/8rfo.jpg" class="blur " height="420" width="1420">
   </div>
 
   <div class="container text-white">
@@ -53,61 +53,76 @@ For IE support of object-fit add this to your document
     </div>
 
   <% else %>
-    <div>    
-    	     <a class="btn btn-danger btn-lg"
 
-      <%= link_to "Sign in", new_user_session_path %>
-      
+<!------ SIGN IN AND SIGN UP SECTION ----->
+   
 
-    </div>
-<br>
-    <div>
 
-    	 <a class="btn btn-dark btn-lg"
-      <%= link_to "Sign up", new_user_registration_path %>
-      
-    </div>
+
+<a class="btn btn-dark"    <%= link_to "Sign in", new_user_session_path %> 
+  </a>
+
+   <a class="btn btn-outline-dark"    <%= link_to "Sign up", new_user_registration_path %> 
+  </a>
+
+
+
+   
    </br>
 
   <% end %>
 </ul>
+</div>
+<!------ SIGN IN AND SIGN UP SECTION ----->
+
 </center>
 
 
 <!--- INDEX OF EVENT FUELED WITH FAKER ---> 
 <center>
 
-   <div class="container">
-    <div class="row">
-    <%Event.all.each do |event|%>
-    <div class="card-deck col-xs-12 col-sm-12 col-md-4 col-lg-4">
-    <div class="card">
+<div class="container">
+<div class="row">
+<%Event.all.each do |event|%>
+  
+<div class="card-deck col-xs-12 col-sm-12 col-md-4 col-lg-4">
 
-   <div class="card-header"> </div>
-    <div class="card-header"> <%=event.title%> </div>
+<div class="card">
+     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbVnHFBOFkxDZQkqxIAnJeRnSifg7Tm20_b2NWTxmTnq8fHnW2TA&s" class="card-img-top" alt="#">
 
-    <div class="card-body align-center">
-    <blockquote class="blockquote mb-0">
-    <p > Location: <%=event.location%></p>
-        <p> Date : <%=event.start_date%></p>
+<div class="card-header"> <%=event.title%> </div>
 
-    </blockquote>
-    </div>
-    <footer class="blockquote-footer">
-    <div class="row justify-content-between align-self-center mx-3">
-    	            	    <p><%=event.duration%></p>
+<div class="card-body align-center">
+<blockquote class="blockquote mb-0">
+<p > Location: <%=event.location%></p>
+<p> Date : <%=event.start_date%></p>
 
-    </a>
-    </div>
-    </footer>
-    </div> 
-    </div>
-    <%end%>
-    </div>
-  </div>
+</blockquote>
+</div>
+<footer class="blockquote-footer">
+<div class="row justify-content-between align-self-center mx-3">
+<p><%=event.duration%></p>
+ <p class="card-text"> <%=event.location%></p>
+ <div class="card-body align-center">
+ <p>
+<%= link_to "See this event", event_path(event), class: "navbar-brand js-scroll-trigger" %> </p>
+</div>
+<p>
+_____________________________________________________
+</p>
+
+
+</a>
+</div>
+</div> 
+</div>
+<%end%>
+</div>
+</div>
 
 </center>
-​</body>
+
+
 
 
 
